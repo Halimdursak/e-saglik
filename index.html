@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Sağlık - Dijital Sağlık Asistanınız</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="resimler/logo.jpg" alt="E-Sağlık Logo" class="logo-img">
+                </div>
+                <nav class="nav-menu" id="navMenu">
+                    <ul>
+                        <li><a href="#ana-sayfa" class="active"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                        <li><a href="#yapay-zeka"><i class="fas fa-robot"></i> Yapay Zeka HEMŞO</a></li>
+                        <li><a href="#ziyaretlerim"><i class="fas fa-hospital"></i> Ziyaretlerim</a></li>
+                        <li><a href="#recetelerim"><i class="fas fa-prescription"></i> Reçetelerim</a></li>
+                        <li><a href="#raporlarim"><i class="fas fa-file-medical"></i> Raporlarım</a></li>
+                        <li><a href="#hastaliklarim"><i class="fas fa-heartbeat"></i> Hastalıklarım</a></li>
+                        <li><a href="#tahlillerim"><i class="fas fa-vial"></i> Tahlillerim</a></li>
+                        <li><a href="#radyoloji"><i class="fas fa-x-ray"></i> Radyolojik Görüntüler</a></li>
+                        <li><a href="#patoloji"><i class="fas fa-microscope"></i> Patolojik Bilgiler</a></li>
+                        <li><a href="#kriz"><i class="fas fa-exclamation-triangle"></i> Kriz Bilgilerim</a></li>
+                        <li><a href="#randevu"><i class="fas fa-calendar-check"></i> Randevu Al</a></li>
+                    </ul>
+                </nav>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Muslumcan+Dogan&background=0D8ABC&color=fff" alt="Profil" class="profile-img">
+                    <span class="user-name">Müslümcan Doğan</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="ana-sayfa" class="section active">
+            <div class="container">
+                <div class="welcome-card">
+                    <h1>Hoş Geldiniz, Müslümcan Bey</h1>
+                    <p>E-Sağlık sistemine hoş geldiniz. Sağlık bilgileriniz güvende.</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-icon" style="background: #4CAF50;">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Yaklaşan Randevular</h3>
+                        <p class="card-number">3</p>
+                        <a href="#randevu" class="card-link">Görüntüle</a>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-icon" style="background: #2196F3;">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3>Yeni Tahliller</h3>
+                        <p class="card-number">2</p>
+                        <a href="#tahlillerim" class="card-link">Görüntüle</a>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-icon" style="background: #FF9800;">
+                            <i class="fas fa-prescription"></i>
+                        </div>
+                        <h3>Aktif Reçeteler</h3>
+                        <p class="card-number">4</p>
+                        <a href="#recetelerim" class="card-link">Görüntüle</a>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-icon" style="background: #9C27B0;">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Yapay Zeka Asistanı HEMŞO</h3>
+                        <p class="card-number">Aktif</p>
+                        <a href="#yapay-zeka" class="card-link">Kullan</a>
+                    </div>
+                </div>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Güvenli Veri</h3>
+                        <p>Sağlık verileriniz en üst düzey güvenlik ile korunuyor</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>7/24 Erişim</h3>
+                        <p>İstediğiniz zaman sağlık bilgilerinize ulaşın</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobil Uyumlu</h3>
+                        <p>Her cihazdan kolayca erişim sağlayın</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="yapay-zeka" class="section">
+            <h2 class="section-title">Yapay Zeka Sağlık Asistanı HEMŞO (Gemini AI)</h2>
+            <div id="chatInterface">
+                <div class="controls">
+                    <button onclick="clearChat()">Sohbeti Temizle</button>
+                    <button onclick="saveChat()">Sohbeti Kaydet</button>
+                    <button onclick="showStats()">İstatistikler</button>
+                </div>
+                <div class="chat-container" id="chatContainer">
+                    <div class="message ai">
+                        <div class="message-content">
+                            <div>👋 Merhaba Müslümcan Bey! Ben Gemini AI. Sağlıkla ilgili sorularınızı yanıtlamak için buradayım. Size nasıl yardımcı olabilirim?</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="typing-indicator" id="typingIndicator">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="stats" id="stats">
+                    Mesaj: 0 | Ortalama: 0s
+                </div>
+                <div class="input-container">
+                    <input type="text" id="messageInput" placeholder="Mesajınızı yazın..." onkeypress="if(event.key==='Enter') sendMessage()">
+                    <button onclick="sendMessage()" id="sendButton">Gönder 🚀</button>
+                </div>
+            </div>
+        </section>
+        <section id="ziyaretlerim" class="section">
+            <div class="container">
+                <h2 class="section-title">Ziyaretlerim</h2>
+                
+                <div class="records-grid">
+                    <div class="record-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-hospital"></i> Ankara Şehir Hastanesi</h3>
+                            <span class="record-date">15.09.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Bölüm:</strong> Kardiyoloji</p>
+                            <p><strong>Doktor:</strong> Prof. Dr. Ahmet Yılmaz</p>
+                            <p><strong>Şikayet:</strong> Göğüs ağrısı, nefes darlığı</p>
+                            <p><strong>Tanı:</strong> Hipertansiyon kontrolü</p>
+                        </div>
+                    </div>
+
+                    <div class="record-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-hospital"></i> Gazi Üniversitesi Hastanesi</h3>
+                            <span class="record-date">22.08.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Bölüm:</strong> Dahiliye</p>
+                            <p><strong>Doktor:</strong> Doç. Dr. Ayşe Kaya</p>
+                            <p><strong>Şikayet:</strong> Yorgunluk, halsizlik</p>
+                            <p><strong>Tanı:</strong> Vitamin D eksikliği</p>
+                        </div>
+                    </div>
+
+                    <div class="record-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-hospital"></i> Ankara Üniversitesi Tıp Fakültesi</h3>
+                            <span class="record-date">10.07.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Bölüm:</strong> Endokrinoloji</p>
+                            <p><strong>Doktor:</strong> Uzm. Dr. Mehmet Demir</p>
+                            <p><strong>Şikayet:</strong> Şeker takibi</p>
+                            <p><strong>Tanı:</strong> Tip 2 Diyabet kontrolü</p>
+                        </div>
+                    </div>
+
+                    <div class="record-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-hospital"></i> Medicana Hastanesi</h3>
+                            <span class="record-date">05.06.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Bölüm:</strong> Ortopedi</p>
+                            <p><strong>Doktor:</strong> Op. Dr. Zeynep Öztürk</p>
+                            <p><strong>Şikayet:</strong> Diz ağrısı</p>
+                            <p><strong>Tanı:</strong> Menisküs yırtığı şüphesi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recetelerim" class="section">
+            <div class="container">
+                <h2 class="section-title">Reçetelerim</h2>
+                
+                <div class="records-grid">
+                    <div class="record-card prescription-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-prescription"></i> Reçete #2025-001</h3>
+                            <span class="badge badge-active">Aktif</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Tarih:</strong> 15.09.2025</p>
+                            <p><strong>Doktor:</strong> Prof. Dr. Ahmet Yılmaz</p>
+                            <p><strong>Hastane:</strong> Ankara Şehir Hastanesi</p>
+                            <div class="medicine-list">
+                                <h4>İlaçlar:</h4>
+                                <ul>
+                                    <li>Ramipril 5mg - Günde 1x1 (Sabah)</li>
+                                    <li>Aspirin 100mg - Günde 1x1 (Akşam)</li>
+                                    <li>Atorvastatin 20mg - Günde 1x1 (Gece)</li>
+                                </ul>
+                            </div>
+                            <button class="btn-download"><i class="fas fa-download"></i> İndir</button>
+                        </div>
+                    </div>
+
+                    <div class="record-card prescription-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-prescription"></i> Reçete #2025-002</h3>
+                            <span class="badge badge-active">Aktif</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Tarih:</strong> 22.08.2025</p>
+                            <p><strong>Doktor:</strong> Doç. Dr. Ayşe Kaya</p>
+                            <p><strong>Hastane:</strong> Gazi Üniversitesi Hastanesi</p>
+                            <div class="medicine-list">
+                                <h4>İlaçlar:</h4>
+                                <ul>
+                                    <li>Vitamin D3 50.000 IU - Haftada 1x1</li>
+                                    <li>Vitamin B12 1000mcg - Günde 1x1</li>
+                                </ul>
+                            </div>
+                            <button class="btn-download"><i class="fas fa-download"></i> İndir</button>
+                        </div>
+                    </div>
+
+                    <div class="record-card prescription-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-prescription"></i> Reçete #2025-003</h3>
+                            <span class="badge badge-expired">Süresi Doldu</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Tarih:</strong> 10.07.2025</p>
+                            <p><strong>Doktor:</strong> Uzm. Dr. Mehmet Demir</p>
+                            <p><strong>Hastane:</strong> Ankara Üniversitesi Tıp Fakültesi</p>
+                            <div class="medicine-list">
+                                <h4>İlaçlar:</h4>
+                                <ul>
+                                    <li>Metformin 850mg - Günde 2x1</li>
+                                    <li>Gliclazide 60mg - Günde 1x1</li>
+                                </ul>
+                            </div>
+                            <button class="btn-download"><i class="fas fa-download"></i> İndir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="raporlarim" class="section">
+            <div class="container">
+                <h2 class="section-title">Raporlarım</h2>
+                
+                <div class="records-grid">
+                    <div class="record-card report-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-file-medical"></i> Kardiyoloji Raporu</h3>
+                            <span class="record-date">15.09.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Doktor:</strong> Prof. Dr. Ahmet Yılmaz</p>
+                            <p><strong>Hastane:</strong> Ankara Şehir Hastanesi</p>
+                            <p><strong>Rapor Tipi:</strong> Ekokardiyografi</p>
+                            <p><strong>Sonuç:</strong> EF: %55, Normal sol ventrikül sistolik fonksiyonu. Hafif mitral yetersizliği mevcut.</p>
+                            <button class="btn-download"><i class="fas fa-download"></i> Raporu İndir</button>
+                        </div>
+                    </div>
+
+                    <div class="record-card report-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-file-medical"></i> Endokrinoloji Raporu</h3>
+                            <span class="record-date">10.07.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Doktor:</strong> Uzm. Dr. Mehmet Demir</p>
+                            <p><strong>Hastane:</strong> Ankara Üniversitesi Tıp Fakültesi</p>
+                            <p><strong>Rapor Tipi:</strong> Diyabet Kontrol Raporu</p>
+                            <p><strong>Sonuç:</strong> HbA1c: 6.8%. Diyabet kontrolü iyi seyrediyor. Tedaviye devam önerilir.</p>
+                            <button class="btn-download"><i class="fas fa-download"></i> Raporu İndir</button>
+                        </div>
+                    </div>
+
+                    <div class="record-card report-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-file-medical"></i> Ortopedi Raporu</h3>
+                            <span class="record-date">05.06.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Doktor:</strong> Op. Dr. Zeynep Öztürk</p>
+                            <p><strong>Hastane:</strong> Medicana Hastanesi</p>
+                            <p><strong>Rapor Tipi:</strong> MR Raporu</p>
+                            <p><strong>Sonuç:</strong> Sağ diz medial menisküste yırtık izlendi. Konservatif tedavi önerildi.</p>
+                            <button class="btn-download"><i class="fas fa-download"></i> Raporu İndir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hastaliklarim" class="section">
+            <div class="container">
+                <h2 class="section-title">Hastalıklarım</h2>
+                
+                <div class="disease-timeline">
+                    <div class="disease-card">
+                        <div class="disease-status active"></div>
+                        <div class="disease-content">
+                            <h3><i class="fas fa-heartbeat"></i> Hipertansiyon (Yüksek Tansiyon)</h3>
+                            <p><strong>Başlangıç:</strong> Mart 2023</p>
+                            <p><strong>Durum:</strong> <span class="badge badge-warning">Tedavi Altında</span></p>
+                            <p><strong>Tedavi:</strong> İlaç tedavisi devam ediyor</p>
+                            <p><strong>Son Kontrol:</strong> 15.09.2025</p>
+                            <div class="disease-notes">
+                                <p>Tansiyon değerleri 130/85 civarında seyrediyor. Tuz kısıtlaması ve düzenli egzersiz önerildi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="disease-card">
+                        <div class="disease-status active"></div>
+                        <div class="disease-content">
+                            <h3><i class="fas fa-tint"></i> Tip 2 Diyabet</h3>
+                            <p><strong>Başlangıç:</strong> Ocak 2024</p>
+                            <p><strong>Durum:</strong> <span class="badge badge-success">Kontrol Altında</span></p>
+                            <p><strong>Tedavi:</strong> Metformin 850mg 2x1</p>
+                            <p><strong>Son Kontrol:</strong> 10.07.2025</p>
+                            <div class="disease-notes">
+                                <p>HbA1c: 6.8%. Kan şekeri takibi düzenli yapılıyor. Diyet kontrolü iyi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="disease-card">
+                        <div class="disease-status resolved"></div>
+                        <div class="disease-content">
+                            <h3><i class="fas fa-pills"></i> Vitamin D Eksikliği</h3>
+                            <p><strong>Başlangıç:</strong> Ağustos 2025</p>
+                            <p><strong>Durum:</strong> <span class="badge badge-success">İyileşti</span></p>
+                            <p><strong>Tedavi:</strong> Vitamin D3 takviyesi tamamlandı</p>
+                            <p><strong>Son Kontrol:</strong> 22.08.2025</p>
+                            <div class="disease-notes">
+                                <p>Vitamin D seviyesi normale döndü (35 ng/ml). Güneş ışığından yararlanma önerildi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tahlillerim" class="section">
+            <div class="container">
+                <h2 class="section-title">Tahlillerim</h2>
+                
+                <div class="test-results">
+                    <div class="test-card">
+                        <div class="test-header">
+                            <h3><i class="fas fa-vial"></i> Tam Kan Sayımı</h3>
+                            <span class="test-date">15.09.2025</span>
+                        </div>
+                        <div class="test-body">
+                            <table class="test-table">
+                                <thead>
+                                    <tr>
+                                        <th>Test</th>
+                                        <th>Sonuç</th>
+                                        <th>Referans</th>
+                                        <th>Durum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Hemoglobin</td>
+                                        <td>14.5 g/dL</td>
+                                        <td>13-17 g/dL</td>
+                                        <td><span class="status-normal">Normal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lökosit</td>
+                                        <td>7.800 /mm³</td>
+                                        <td>4.000-10.000 /mm³</td>
+                                        <td><span class="status-normal">Normal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trombosit</td>
+                                        <td>245.000 /mm³</td>
+                                        <td>150.000-400.000 /mm³</td>
+                                        <td><span class="status-normal">Normal</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button class="btn-download"><i class="fas fa-download"></i> Tahlil Sonucunu İndir</button>
+                        </div>
+                    </div>
+
+                    <div class="test-card">
+                        <div class="test-header">
+                            <h3><i class="fas fa-vial"></i> Biyokimya Testleri</h3>
+                            <span class="test-date">15.09.2025</span>
+                        </div>
+                        <div class="test-body">
+                            <table class="test-table">
+                                <thead>
+                                    <tr>
+                                        <th>Test</th>
+                                        <th>Sonuç</th>
+                                        <th>Referans</th>
+                                        <th>Durum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Açlık Kan Şekeri</td>
+                                        <td>125 mg/dL</td>
+                                        <td>70-100 mg/dL</td>
+                                        <td><span class="status-high">Yüksek</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>HbA1c</td>
+                                        <td>6.8 %</td>
+                                        <td>4-6 %</td>
+                                        <td><span class="status-high">Yüksek</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Kolesterol</td>
+                                        <td>210 mg/dL</td>
+                                        <td>&lt;200 mg/dL</td>
+                                        <td><span class="status-high">Yüksek</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>LDL Kolesterol</td>
+                                        <td>135 mg/dL</td>
+                                        <td>&lt;130 mg/dL</td>
+                                        <td><span class="status-high">Yüksek</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>HDL Kolesterol</td>
+                                        <td>45 mg/dL</td>
+                                        <td>&gt;40 mg/dL</td>
+                                        <td><span class="status-normal">Normal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trigliserid</td>
+                                        <td>150 mg/dL</td>
+                                        <td>&lt;150 mg/dL</td>
+                                        <td><span class="status-normal">Normal</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button class="btn-download"><i class="fas fa-download"></i> Tahlil Sonucunu İndir</button>
+                        </div>
+                    </div>
+
+                    <div class="test-card">
+                        <div class="test-header">
+                            <h3><i class="fas fa-vial"></i> Vitamin Seviyeleri</h3>
+                            <span class="test-date">22.08.2025</span>
+                        </div>
+                        <div class="test-body">
+                            <table class="test-table">
+                                <thead>
+                                    <tr>
+                                        <th>Test</th>
+                                        <th>Sonuç</th>
+                                        <th>Referans</th>
+                                        <th>Durum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Vitamin D</td>
+                                        <td>35 ng/mL</td>
+                                        <td>30-100 ng/mL</td>
+                                        <td><span class="status-normal">Normal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vitamin B12</td>
+                                        <td>350 pg/mL</td>
+                                        <td>200-900 pg/mL</td>
+                                        <td><span class="status-normal">Normal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Folat</td>
+                                        <td>8.5 ng/mL</td>
+                                        <td>3-17 ng/mL</td>
+                                        <td><span class="status-normal">Normal</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button class="btn-download"><i class="fas fa-download"></i> Tahlil Sonucunu İndir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="radyoloji" class="section">
+            <div class="container">
+                <h2 class="section-title">Radyolojik Görüntülerim</h2>
+                <div class="records-grid">
+                    <div class="record-card radiology-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-x-ray"></i> Göğüs Röntgeni</h3>
+                            <span class="record-date">15.09.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <div class="radiology-image">
+                                <img src="resimler/akciger resmi.jpg" alt="Göğüs Röntgeni" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;">
+                            </div>
+                            <p><strong>Hastane:</strong> Ankara Şehir Hastanesi</p>
+                            <p><strong>Rapor:</strong> Kalp gölgesi normal sınırlarda. Akciğer parankimi doğal. Patolojik görünüm izlenmedi.</p>
+                            <button class="btn-download"><i class="fas fa-download"></i> Görüntüyü İndir</button>
+                        </div>
+                    </div>
+                    <div class="record-card radiology-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-procedures"></i> MR - Diz</h3>
+                            <span class="record-date">05.06.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <div class="radiology-image">
+                                <img src="resimler/dizkapagi.jpg" alt="MR - Diz" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;">
+                            </div>
+                            <p><strong>Hastane:</strong> Medicana Hastanesi</p>
+                            <p><strong>Rapor:</strong> Sağ diz medial menisküs posterior hornda vertikal yırtık. Ön çapraz bağ intakt. Minimal eklem sıvısı artışı.</p>
+                            <button class="btn-download"><i class="fas fa-download"></i> Görüntüyü İndir</button>
+                        </div>
+                    </div>
+                    <div class="record-card radiology-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-heartbeat"></i> Ekokardiyografi</h3>
+                            <span class="record-date">15.09.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <div class="radiology-image">
+                                <img src="resimler/solvetekul.jpg" alt="Ekokardiyografi" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;">
+                            </div>
+                            <p><strong>Hastane:</strong> Ankara Şehir Hastanesi</p>
+                            <p><strong>Rapor:</strong> Sol ventrikül boyutları normal. EF: %55. Hafif mitral yetersizliği. Diğer kapaklar normal.</p>
+                            <button class="btn-download"><i class="fas fa-download"></i> Görüntüyü İndir</button>
+                        </div>
+                    </div>
+                    <div class="record-card radiology-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-brain"></i> BT - Kranial</h3>
+                            <span class="record-date">20.04.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <div class="radiology-image">
+                                <img src="resimler/beyin.jpg" alt="BT - Kranial" style="width:100%; height:100%; object-fit:cover; border-radius: 8px;">
+                            </div>
+                            <p><strong>Hastane:</strong> Gazi Üniversitesi Hastanesi</p>
+                            <p><strong>Rapor:</strong> Beyin parankim yapısı normal. Hemoraji, iskemi veya kitle lezyonu izlenmedi.</p>
+                            <button class="btn-download"><i class="fas fa-download"></i> Görüntüyü İndir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="patoloji" class="section">
+            <div class="container">
+                <h2 class="section-title">Patolojik Bilgilerim</h2>
+                <div class="records-grid">
+                    <div class="record-card pathology-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-microscope"></i> Biyopsi Sonucu - Deri</h3>
+                            <span class="record-date">10.05.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Hastane:</strong> Ankara Üniversitesi Tıp Fakültesi</p>
+                            <p><strong>Lokasyon:</strong> Sırt bölgesi</p>
+                            <p><strong>Makroskopi:</strong> 0.5 x 0.5 cm kahverengi lezyon</p>
+                            <p><strong>Mikroskopi:</strong> Benign melanositik nevüs. Malignite bulgusu izlenmedi.</p>
+                            <p><strong>Sonuç:</strong> <span class="badge badge-success">Benign</span></p>
+                            <button class="btn-download"><i class="fas fa-download"></i> Raporu İndir</button>
+                        </div>
+                    </div>
+                    <div class="record-card pathology-card">
+                        <div class="record-header">
+                            <h3><i class="fas fa-microscope"></i> Endoskopik Biyopsi</h3>
+                            <span class="record-date">15.03.2025</span>
+                        </div>
+                        <div class="record-body">
+                            <p><strong>Hastane:</strong> Ankara Şehir Hastanesi</p>
+                            <p><strong>Lokasyon:</strong> Mide - Antrum</p>
+                            <p><strong>Makroskopi:</strong> Multiple mukozal doku fragmanları</p>
+                            <p><strong>Mikroskopi:</strong> Kronik gastrit bulguları. Helicobacter pylori negatif. Displazi veya malignite izlenmedi.</p>
+                            <p><strong>Sonuç:</strong> <span class="badge badge-success">Benign</span></p>
+                            <button class="btn-download"><i class="fas fa-download"></i> Raporu İndir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kriz" class="section">
+            <div class="container">
+                <h2 class="section-title">Acil Durum ve Kriz Bilgilerim</h2>
+                <div class="emergency-info">
+                    <div class="emergency-card alert-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Önemli Uyarı</h3>
+                        <p>Acil durumlarda 112'yi arayın!</p>
+                    </div>
+                    <div class="emergency-card">
+                        <h3><i class="fas fa-allergies"></i> Alerjilerim</h3>
+                        <ul class="emergency-list">
+                            <li><span class="allergy-badge">İlaç</span> Penisilin - Anafilaktik reaksiyon</li>
+                            <li><span class="allergy-badge">Besin</span> Fıstık - Şişme, kaşıntı</li>
+                        </ul>
+                    </div>
+                    <div class="emergency-card">
+                        <h3><i class="fas fa-tint"></i> Kan Grubu</h3>
+                        <p class="blood-type">A Rh(+)</p>
+                    </div>
+                    <div class="emergency-card">
+                        <h3><i class="fas fa-phone-alt"></i> Acil Durum İletişim</h3>
+                        <div class="emergency-contact">
+                            <p><strong>Ad:</strong> Ayşe Doğan (Eş)</p>
+                            <p><strong>Telefon:</strong> +90 532 123 45 67</p>
+                        </div>
+                        <div class="emergency-contact">
+                            <p><strong>Ad:</strong> Mehmet Doğan (Kardeş)</p>
+                            <p><strong>Telefon:</strong> +90 533 987 65 43</p>
+                        </div>
+                    </div>
+                    <div class="emergency-card">
+                        <h3><i class="fas fa-notes-medical"></i> Kronik Hastalıklar</h3>
+                        <ul class="emergency-list">
+                            <li>Tip 2 Diyabet</li>
+                            <li>Hipertansiyon</li>
+                        </ul>
+                    </div>
+                    <div class="emergency-card">
+                        <h3><i class="fas fa-pills"></i> Sürekli Kullandığım İlaçlar</h3>
+                        <ul class="emergency-list">
+                            <li>Metformin 850mg - Günde 2x1</li>
+                            <li>Ramipril 5mg - Günde 1x1</li>
+                            <li>Aspirin 100mg - Günde 1x1</li>
+                            <li>Atorvastatin 20mg - Günde 1x1</li>
+                        </ul>
+                    </div>
+                    <div class="emergency-card">
+                        <h3><i class="fas fa-hospital"></i> Yakın Hastaneler</h3>
+                        <ul class="hospital-list">
+                            <li>
+                                <strong>Ankara Şehir Hastanesi</strong>
+                                <p>Bilkent, Ankara - 5 km</p>
+                                <p>Tel: 0312 552 60 00</p>
+                            </li>
+                            <li>
+                                <strong>Gazi Üniversitesi Hastanesi</strong>
+                                <p>Beşevler, Ankara - 8 km</p>
+                                <p>Tel: 0312 202 50 00</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="randevu" class="section">
+            <div class="container">
+                <h2 class="section-title">Randevu İşlemleri</h2>
+                <div class="appointment-container">
+                    <div class="appointment-form-card">
+                        <h3><i class="fas fa-calendar-plus"></i> Yeni Randevu Al</h3>
+                        <form id="appointmentForm">
+                            <div class="form-group">
+                                <label for="hospital">Hastane Seçin</label>
+                                <select id="hospital" required>
+                                    <option value="">Hastane seçin...</option>
+                                    <option value="ankara-sehir">Ankara Şehir Hastanesi</option>
+                                    <option value="gazi-uni">Gazi Üniversitesi Hastanesi</option>
+                                    <option value="ankara-uni">Ankara Üniversitesi Tıp Fakültesi</option>
+                                    <option value="medicana">Medicana Hastanesi</option>
+                                    <option value="bayindir">Bayındır Hastanesi</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Bölüm Seçin</label>
+                                <select id="department" required>
+                                    <option value="">Bölüm seçin...</option>
+                                    <option value="kardiyoloji">Kardiyoloji</option>
+                                    <option value="dahiliye">Dahiliye</option>
+                                    <option value="endokrinoloji">Endokrinoloji</option>
+                                    <option value="ortopedi">Ortopedi</option>
+                                    <option value="genel-cerrahi">Genel Cerrahi</option>
+                                    <option value="noroloji">Nöroloji</option>
+                                    <option value="goz">Göz Hastalıkları</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="doctor">Doktor Seçin</label>
+                                <select id="doctor" required>
+                                    <option value="">Doktor seçin...</option>
+                                    <option value="doktor1">Prof. Dr. Ahmet Yılmaz</option>
+                                    <option value="doktor2">Doç. Dr. Ayşe Kaya</option>
+                                    <option value="doktor3">Uzm. Dr. Mehmet Demir</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Tarih Seçin</label>
+                                <input type="date" id="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Saat Seçin</label>
+                                <select id="time" required>
+                                    <option value="">Saat seçin...</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Notlar (Opsiyonel)</label>
+                                <textarea id="notes" rows="3" placeholder="Randevu ile ilgili notlarınız..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-calendar-check"></i> Randevu Oluştur
+                            </button>
+                        </form>
+                    </div>
+                    <div class="appointments-list-card">
+                        <h3><i class="fas fa-calendar-alt"></i> Mevcut Randevularım</h3>
+                        <div class="appointment-item upcoming">
+                            <div class="appointment-date">
+                                <span class="day">25</span>
+                                <span class="month">EKİ</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Kardiyoloji Kontrolü</h4>
+                                <p><i class="fas fa-hospital"></i> Ankara Şehir Hastanesi</p>
+                                <p><i class="fas fa-user-md"></i> Prof. Dr. Ahmet Yılmaz</p>
+                                <p><i class="fas fa-clock"></i> 10:00</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn-cancel"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="appointment-item upcoming">
+                            <div class="appointment-date">
+                                <span class="day">02</span>
+                                <span class="month">KAS</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Diyabet Kontrolü</h4>
+                                <p><i class="fas fa-hospital"></i> Ankara Üniversitesi Tıp Fakültesi</p>
+                                <p><i class="fas fa-user-md"></i> Uzm. Dr. Mehmet Demir</p>
+                                <p><i class="fas fa-clock"></i> 14:30</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn-cancel"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="appointment-item upcoming">
+                            <div class="appointment-date">
+                                <span class="day">15</span>
+                                <span class="month">KAS</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Ortopedi Kontrolü</h4>
+                                <p><i class="fas fa-hospital"></i> Medicana Hastanesi</p>
+                                <p><i class="fas fa-user-md"></i> Op. Dr. Zeynep Öztürk</p>
+                                <p><i class="fas fa-clock"></i> 11:00</p>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn-cancel"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="appointment-item past">
+                            <div class="appointment-date">
+                                <span class="day">15</span>
+                                <span class="month">EYL</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Kardiyoloji Muayenesi</h4>
+                                <p><i class="fas fa-hospital"></i> Ankara Şehir Hastanesi</p>
+                                <p><i class="fas fa-user-md"></i> Prof. Dr. Ahmet Yılmaz</p>
+                                <p><i class="fas fa-check-circle"></i> Tamamlandı</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 E-Sağlık Sistemi. Tüm hakları saklıdır.</p>
+            <p>Acil durumlarda 112'yi arayın</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
